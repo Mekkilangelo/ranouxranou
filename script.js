@@ -13,7 +13,7 @@ const CONFIG = {
 
   places: {
     mairie: {
-      label: "Mairie · Château Dodo (annexe derrière la mairie)", time: "13h30", n: 1, color: "#ee6a1a",
+      label: "Mairie · Château Dodo (annexe derrière la mairie)", time: "13h30", n: 1, color: "#ff9b3d",
       lat: 45.203412, lng: 5.840019,
       query: "2 Rue Jules Ferry, 38420 Domène",
     },
@@ -91,6 +91,25 @@ function closeIntro() {
   intro.classList.add("gone");
   document.body.classList.remove("locked");
   try { sessionStorage.setItem("opened", "1"); } catch (e) {}
+  showScrollHint();
+}
+
+/* ---------- Indication « Faites défiler » : téléphones, première visite uniquement ---------- */
+function showScrollHint() {
+  const hint = $("scroll-hint");
+  const isPhone = matchMedia("(pointer: coarse) and (max-width: 900px)").matches;
+  let seen = false;
+  try { seen = localStorage.getItem("scrollHintSeen") === "1"; } catch (e) {}
+  if (!isPhone || seen || scrollY > 40) return;
+  hint.hidden = false;
+  const hide = () => {
+    if (scrollY < 40) return;
+    hint.classList.add("fade");
+    setTimeout(() => { hint.hidden = true; }, 400);
+    removeEventListener("scroll", hide);
+    try { localStorage.setItem("scrollHintSeen", "1"); } catch (e) {}
+  };
+  addEventListener("scroll", hide, { passive: true });
 }
 
 function resetIntro() {
@@ -108,7 +127,7 @@ addEventListener("resize", () => { if (intro.classList.contains("zoom")) zoomLet
 
 let alreadyOpened = params.has("ouvert");
 try { alreadyOpened = alreadyOpened || sessionStorage.getItem("opened") === "1"; } catch (e) {}
-if (alreadyOpened) intro.classList.add("gone");
+if (alreadyOpened) { intro.classList.add("gone"); showScrollHint(); }
 else document.body.classList.add("locked");
 
 /* ---------- Compte à rebours ---------- */
@@ -145,7 +164,7 @@ setInterval(tick, 1000);
 
 /* ---------- Feux d'artifice (le jour J uniquement) ---------- */
 function startFireworks() {
-  const colors = ["#ee6a1a", "#ffc94a", "#d6246e", "#ef6fa0", "#ae8fdb", "#ffe3a3"];
+  const colors = ["#ff9b3d", "#ffc94a", "#d6246e", "#ef6fa0", "#ae8fdb", "#ffe3a3"];
   const cv = $("fireworks");
   const ctx = cv.getContext("2d");
   cv.style.display = "block";
