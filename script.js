@@ -13,17 +13,17 @@ const CONFIG = {
 
   places: {
     mairie: {
-      label: "Mairie · Château Dodo", time: "13h30", n: 1,
-      lat: 45.201657, lng: 5.839071,
-      query: "Mairie de Domène, Place Stalingrad, 38420 Domène",
+      label: "Mairie · Château Dodo (annexe derrière la mairie)", time: "13h30", n: 1, color: "#ee6a1a",
+      lat: 45.203412, lng: 5.840019,
+      query: "2 Rue Jules Ferry, 38420 Domène",
     },
     photo: {
-      label: "Séance photo · Parc du Bachais", time: "14h30", n: 2,
+      label: "Séance photo · Parc du Bachais", time: "14h30", n: 2, color: "#d6246e",
       lat: 45.2119025, lng: 5.7803586,
       query: "Parc du Bachais, 38240 Meylan",
     },
     domaine: {
-      label: "Réception · Domaine de Vence", time: "19h00", n: 3,
+      label: "Réception · Domaine de Vence", time: "19h00", n: 3, color: "#ae8fdb",
       lat: 45.2465785, lng: 5.7274329,
       query: "Domaine de Vence, 38950 Quaix-en-Chartreuse",
     },
@@ -145,7 +145,7 @@ setInterval(tick, 1000);
 
 /* ---------- Feux d'artifice (le jour J uniquement) ---------- */
 function startFireworks() {
-  const colors = ["#f39a1d", "#ffc94a", "#d6246e", "#ef6fa0", "#ae8fdb", "#ffe3a3"];
+  const colors = ["#ee6a1a", "#ffc94a", "#d6246e", "#ef6fa0", "#ae8fdb", "#ffe3a3"];
   const cv = $("fireworks");
   const ctx = cv.getContext("2d");
   cv.style.display = "block";
@@ -217,7 +217,7 @@ if (window.L) {
   }).addTo(map);
   L.polyline(line, { color: "#d6246e", weight: 3, dashArray: "6 8", opacity: 0.85 }).addTo(map);
   pts.forEach(p => {
-    const icon = L.divIcon({ className: "pin", html: `<span>${p.n}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
+    const icon = L.divIcon({ className: "pin", html: `<span style="background:${p.color}">${p.n}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
     L.marker([p.lat, p.lng], { icon }).addTo(map)
       .bindPopup(`<b>${p.time}</b> · ${p.label}<br><a href="${mapsUrl(p)}" target="_blank" rel="noopener">Google Maps</a> · <a href="${wazeUrl(p)}" target="_blank" rel="noopener">Waze</a>`);
   });

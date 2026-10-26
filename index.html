@@ -45,8 +45,8 @@
       </div>
     </div>
 
-    <p class="caps intro-hint">Touchez le sceau pour ouvrir</p>
-    <button class="caps intro-go" id="intro-go" type="button">Découvrir notre site</button>
+    <p class="caps intro-hint">Touchez l'enveloppe pour ouvrir</p>
+    <button class="intro-go" id="intro-go" type="button">Découvrir l'invitation</button>
   </div>
 
   <canvas id="fireworks" class="fireworks" aria-hidden="true"></canvas>
@@ -69,10 +69,6 @@
       </div>
 
       <div class="hero-content">
-        <p class="caps hero-kicker">Les familles des mariés ont le plaisir de vous annoncer le mariage de leurs enfants.</p>
-        <h1 class="names">Rania <span class="et">et</span> Rayane</h1>
-        <img src="img/date.webp" class="hero-date" alt="Samedi 15 mai 2027" width="770" height="458">
-
         <div class="countdown" id="countdown">
           <img src="img/tree.webp" class="tree" alt="" width="700" height="700">
           <p class="j" id="jdays">J-…</p>
@@ -84,6 +80,10 @@
             <div><b id="cd-s">00</b><small>secondes</small></div>
           </div>
         </div>
+
+        <p class="caps hero-kicker">Les familles des mariés ont le plaisir de vous annoncer le mariage de leurs enfants.</p>
+        <h1 class="names">Rania <span class="et">et</span> Rayane</h1>
+        <img src="img/date.webp" class="hero-date" alt="Samedi 15 mai 2027" width="770" height="458">
       </div>
 
     </header>
@@ -92,8 +92,8 @@
     <section id="bienvenue" class="section narrow reveal">
       <h2 class="title script">Bienvenue sur notre site de mariage !</h2>
       <p>Nous avons hâte de partager cette magnifique journée avec vous. Vous retrouverez ici toutes les informations pratiques.</p>
-      <p>Merci de faire partie de cette belle aventure à nos côtés.</p>
-      <p class="signature script">Rania &amp; Rayane <span aria-hidden="true">❤️</span></p>
+      <p>Merci de votre présence.</p>
+      <p class="signature script">Rania &amp; Rayane</p>
     </section>
 
     <div class="divider" aria-hidden="true"><span></span><img src="img/butterfly.webp" alt=""><span></span></div>
@@ -105,25 +105,9 @@
       <p class="lead reveal">Orange, rose fuchsia, violet lilas… Pour ce grand jour, sortez vos plus belles couleurs !</p>
 
       <div class="palette reveal">
-        <figure><span style="--c:#f39a1d"></span><figcaption class="caps">Orange</figcaption></figure>
+        <figure><span style="--c:#ee6a1a"></span><figcaption class="caps">Orange</figcaption></figure>
         <figure><span style="--c:#d6246e"></span><figcaption class="caps">Rose fuchsia</figcaption></figure>
         <figure><span style="--c:#ae8fdb"></span><figcaption class="caps">Violet lilas</figcaption></figure>
-      </div>
-
-      <p class="caps eyebrow reveal">Quelques inspirations</p>
-      <div class="looks reveal">
-        <img loading="lazy" src="img/looks/groupe.jpg" alt="Invitées en robes jaune, orange et fuchsia">
-        <img loading="lazy" src="img/looks/homme-orange.jpg" alt="Costume orange">
-        <img loading="lazy" src="img/looks/fuchsia.jpg" alt="Robe fuchsia">
-        <img loading="lazy" src="img/looks/lilas.jpg" alt="Robes lilas">
-        <img loading="lazy" src="img/looks/orange2.jpg" alt="Robe orange">
-        <img loading="lazy" src="img/looks/homme-corail.jpg" alt="Costume corail">
-        <img loading="lazy" src="img/looks/lilas2.jpg" alt="Robe lilas">
-        <img loading="lazy" src="img/looks/fuchsia2.jpg" alt="Robe fuchsia">
-        <img loading="lazy" src="img/looks/groupe2.jpg" alt="Invités en couleurs vives">
-        <img loading="lazy" src="img/looks/homme-orange2.jpg" alt="Costume orange vif">
-        <img loading="lazy" src="img/looks/lilas3.jpg" alt="Robe lilas plissée">
-        <img loading="lazy" src="img/looks/orange.jpg" alt="Robe orange longue">
       </div>
 
       <div class="banned reveal">
@@ -149,7 +133,7 @@
           <div class="step-body">
             <p class="time">à 13h30</p>
             <h3 class="caps">Mairie</h3>
-            <p class="place">Château Dodo · Domène</p>
+            <p class="place">Château Dodo, annexe derrière la mairie<br>2 rue Jules Ferry · Domène</p>
             <div class="step-map" data-embed="mairie"></div>
             <div class="btns">
               <a class="btn" data-maps="mairie" target="_blank" rel="noopener">Google Maps</a>
@@ -213,9 +197,9 @@
         <div id="map" class="map"></div>
       </div>
       <ol class="legend">
-        <li><i>1</i> Mairie · 13h30</li>
-        <li><i>2</i> Photos · 14h30</li>
-        <li><i>3</i> Domaine · 19h00</li>
+        <li><i style="--c:var(--orange)">1</i> Mairie · 13h30</li>
+        <li><i style="--c:var(--fuchsia)">2</i> Photos · 14h30</li>
+        <li><i style="--c:var(--lilac)">3</i> Domaine · 19h00</li>
       </ol>
       <a class="btn solid" id="route-link" target="_blank" rel="noopener">Ouvrir l'itinéraire complet</a>
     </section>

@@ -3,7 +3,7 @@
   --ink: #5a3a1c;
   --ink-soft: #7d5d3e;
   --line: rgba(90, 58, 28, .28);
-  --orange: #f39a1d;
+  --orange: #ee6a1a;
   --fuchsia: #d6246e;
   --lilac: #ae8fdb;
   --env: #c9b4e6;
@@ -122,9 +122,10 @@ p { margin: 0 0 14px; }
 .intro-go {
   position: absolute; left: 50%; bottom: max(28px, env(safe-area-inset-bottom)); z-index: 7;
   transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
-  font-size: 12px; padding: 14px 26px; border-radius: 999px; border: 0; cursor: pointer; white-space: nowrap;
-  background: var(--ink); color: var(--paper);
-  box-shadow: 0 8px 20px rgba(90, 58, 28, .25);
+  font-family: var(--caps); font-size: 15px; font-weight: 500; letter-spacing: .06em;
+  padding: 16px 34px; border-radius: 999px; border: 0; cursor: pointer; white-space: nowrap;
+  background: var(--fuchsia); color: #fff;
+  box-shadow: 0 10px 26px rgba(214, 36, 110, .35);
   transition: opacity .5s, transform .5s;
 }
 .intro.done .intro-go { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
@@ -160,7 +161,7 @@ p { margin: 0 0 14px; }
 .names .et { font-family: var(--caps); font-size: .18em; letter-spacing: .3em; vertical-align: .9em; margin: 0 .3em 0 .5em; }
 .hero-date { width: min(100%, 500px); height: auto; margin: 8px auto 0; }
 
-.countdown { position: relative; margin-top: 24px; padding: 40px 0 10px; isolation: isolate; }
+.countdown { position: relative; margin: 0 0 34px; padding: 30px 0 40px; isolation: isolate; }
 .countdown::before {
   content: ""; position: absolute; z-index: -2; left: 50%; top: 45%; width: 150%; aspect-ratio: 1; transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(255, 214, 140, .55) 0%, rgba(255, 190, 210, .25) 35%, transparent 65%);
@@ -210,8 +211,6 @@ p { margin: 0 0 14px; }
 }
 .palette figcaption { font-size: 10px; letter-spacing: .2em; }
 
-.looks { columns: 4 200px; column-gap: 12px; margin: 14px 0 50px; }
-.looks img { width: 100%; height: auto; margin: 0 0 12px; border-radius: 4px; break-inside: avoid; box-shadow: 0 4px 12px rgba(90, 58, 28, .12); }
 
 .banned-row { display: flex; justify-content: center; gap: 28px; margin-top: 14px; }
 .banned span { position: relative; width: 44px; height: 44px; border-radius: 50%; background: var(--c); border: 1px solid var(--line); }
@@ -268,7 +267,7 @@ p { margin: 0 0 14px; }
 .legend { list-style: none; padding: 0; margin: 16px 0 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 22px; font-family: var(--caps); font-size: 12px; letter-spacing: .08em; }
 .legend i, .pin span {
   display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%;
-  font-style: normal; font-family: var(--caps); font-size: 11px; background: var(--ink); color: var(--paper); margin-right: 6px;
+  font-style: normal; font-family: var(--caps); font-size: 11px; background: var(--c, var(--ink)); color: #fff; margin-right: 6px;
 }
 .pin span { width: 30px; height: 30px; margin: 0; font-size: 13px; border: 2px solid var(--paper); box-shadow: 0 2px 6px rgba(0, 0, 0, .3); }
 .leaflet-container { font-family: var(--caps); }
@@ -309,8 +308,6 @@ p { margin: 0 0 14px; }
 
 @media (max-width: 600px) {
   body { font-size: 19px; }
-  .looks { columns: 2; column-gap: 8px; }
-  .looks img { margin-bottom: 8px; }
   .clock div { min-width: 0; padding: 0 12px; }
   .clock b { font-size: 24px; }
   .map { height: 340px; }
