@@ -78,13 +78,22 @@ function zoomLetter() {
   letter.style.transform = `translate(${left - box.left}px, ${top - box.top}px) scale(${w / box.width})`;
 }
 
+// sort l'invitation de l'enveloppe, sans dépasser le haut de l'écran (petits téléphones)
+function slideOut() {
+  const r = letter.getBoundingClientRect();
+  const envShift = $("env").offsetHeight * 0.22;
+  const rise = Math.min(0.97, (r.top + envShift - 12) / r.height);
+  letter.style.transform = `translateY(${-rise * 100}%)`;
+  intro.classList.add("out");
+}
+
 function openEnvelope() {
   if (introStep) return;
   introStep = 1;
   intro.classList.add("open");
-  setTimeout(() => intro.classList.add("out"), 750);
-  setTimeout(() => { intro.classList.add("zoom"); zoomLetter(); }, 1900);
-  setTimeout(() => intro.classList.add("done"), 2900);
+  setTimeout(slideOut, 900);
+  setTimeout(() => { intro.classList.add("zoom"); zoomLetter(); }, 2100);
+  setTimeout(() => intro.classList.add("done"), 3100);
 }
 
 function closeIntro() {
