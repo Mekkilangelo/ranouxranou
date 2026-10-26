@@ -6,8 +6,13 @@
   --orange: #ff9b3d;
   --fuchsia: #d6246e;
   --lilac: #ae8fdb;
-  --env: #fdfbf7;
-  --env-dark: #ece4d8;
+  --env: #f6dfdd;
+  --env-side: #f1d3d1;
+  --env-bottom: #f8e6e4;
+  --env-flap-top: #f9e9e7;
+  --env-flap-bottom: #f3d8d6;
+  --env-in: #e9c3c2;
+  --env-fold: rgba(150, 85, 85, .22);
   --wax: #b3184f;
   --script: "Ms Madi", cursive;
   --caps: "Poppins", system-ui, sans-serif;
@@ -57,11 +62,12 @@ p { margin: 0 0 14px; }
   perspective: 1200px;
 }
 .env > div { position: absolute; }
+/* intérieur de l'enveloppe */
 .env-back {
-  inset: 0; border-radius: 6px; border: 1px solid rgba(90, 58, 28, .12);
-  background: var(--env-dark) url("img/paper.webp");
+  inset: 0; border-radius: 4px;
+  background: var(--env-in) url("img/paper.webp");
   background-blend-mode: multiply;
-  box-shadow: 0 18px 40px rgba(90, 58, 28, .22), 0 4px 10px rgba(90, 58, 28, .12);
+  box-shadow: 0 22px 44px -10px rgba(120, 60, 60, .28), 0 3px 8px rgba(120, 60, 60, .12);
   transition: opacity .6s, transform .6s;
 }
 .letter-clip {
@@ -75,16 +81,31 @@ p { margin: 0 0 14px; }
   transition: transform 1.1s cubic-bezier(.3, .7, .2, 1);
   will-change: transform;
 }
+/* poche avant : rabats latéraux + rabat du bas, avec plis fins */
 .env-pocket {
-  inset: 0; z-index: 3; border-radius: 6px; overflow: hidden;
+  inset: 0; z-index: 3; border-radius: 4px;
   background:
-    linear-gradient(to top right, transparent 49.6%, rgba(90, 58, 28, .16) 50%, transparent 50.6%) left / 50% 100% no-repeat,
-    linear-gradient(to top left, transparent 49.6%, rgba(90, 58, 28, .16) 50%, transparent 50.6%) right / 50% 100% no-repeat,
-    var(--env) url("img/paper.webp");
+    linear-gradient(to bottom right, transparent calc(50% - .6px), var(--env-fold) 50%, transparent calc(50% + .6px)) left bottom / 50% 54% no-repeat,
+    linear-gradient(to bottom left, transparent calc(50% - .6px), var(--env-fold) 50%, transparent calc(50% + .6px)) right bottom / 50% 54% no-repeat,
+    var(--env-side) url("img/paper.webp");
   background-blend-mode: normal, normal, multiply;
-  clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
   transition: opacity .6s, transform .6s;
 }
+.env-pocket::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--env-bottom), var(--env)) , url("img/paper.webp");
+  background-blend-mode: multiply;
+  clip-path: polygon(0 100%, 50% 46%, 100% 100%);
+}
+/* ombre portée du rabat fermé */
+.flap-shadow {
+  left: 0; right: 0; top: 0; height: 62%; z-index: 3;
+  background: linear-gradient(180deg, transparent 60%, rgba(120, 60, 60, .16));
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transition: opacity .3s;
+}
+.intro.open .flap-shadow { opacity: 0; }
 .env-flap {
   left: 0; right: 0; top: 0; height: 58%; z-index: 4;
   transform-origin: top center; transform-style: preserve-3d;
@@ -92,22 +113,18 @@ p { margin: 0 0 14px; }
 }
 .flap-face { position: absolute; inset: 0; backface-visibility: hidden; clip-path: polygon(0 0, 100% 0, 50% 100%); }
 .flap-out {
-  background: linear-gradient(180deg, #fffdf9, #f3ece2), url("img/paper.webp");
+  background: linear-gradient(180deg, var(--env-flap-top), var(--env-flap-bottom)), url("img/paper.webp");
   background-blend-mode: multiply;
 }
-.env-flap::after { content: ""; position: absolute; inset: 0; clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 98%, 98% 1%, 2% 1%, 50% 98%, 50% 100%); background: rgba(90, 58, 28, .2); backface-visibility: hidden; }
-.env-flower { position: absolute; height: auto; pointer-events: none; }
-.env-flower.f1 { width: 34%; left: -6%; bottom: -14%; transform: rotate(18deg); }
-.env-flower.f2 { width: 26%; right: -4%; bottom: -6%; transform: rotate(-12deg); }
-.env-flower.f3 { width: 12%; right: 24%; bottom: 10%; }
 .flap-in {
   transform: rotateX(180deg);
-  background: #f6efe6 url("img/garland-top.webp") center top / 260% auto no-repeat;
+  background: var(--env-in) url("img/paper.webp");
+  background-blend-mode: multiply;
 }
 .seal {
   position: absolute; z-index: 5; left: 50%; top: 58%;
-  width: 88px; margin: -38px 0 0 -44px; padding: 0; border: 0; background: none; cursor: pointer;
-  filter: drop-shadow(0 3px 4px rgba(60, 20, 30, .35));
+  width: 82px; margin: -41px 0 0 -41px; padding: 0; border: 0; background: none; cursor: pointer;
+  filter: drop-shadow(0 4px 5px rgba(90, 50, 30, .3));
   transition: transform .45s ease, opacity .45s ease;
 }
 .seal img { width: 100%; height: auto; }
