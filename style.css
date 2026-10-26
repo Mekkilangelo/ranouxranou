@@ -120,6 +120,8 @@ p { margin: 0 0 14px; }
 }
 .intro.open .flap-out { filter: brightness(.82); }
 .flap-in {
+  /* la face est retournée avec le rabat : son triangle doit être inversé pour pointer vers le haut une fois ouvert */
+  clip-path: polygon(0 100%, 100% 100%, 50% 0);
   transform: rotateX(180deg);
   background: var(--env-in) url("img/paper.webp");
   background-blend-mode: multiply;
