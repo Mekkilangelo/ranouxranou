@@ -4,332 +4,269 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Rania & Rayane · 15 mai 2027</title>
-  <meta name="description" content="Rania & Rayane se marient le samedi 15 mai 2027. Toutes les infos : programme, dress code, itinéraire.">
+  <meta name="description" content="Rania & Rayane se marient le samedi 15 mai 2027. Programme, dress code, itinéraire et infos pratiques.">
   <meta property="og:title" content="Rania & Rayane · 15 mai 2027">
-  <meta property="og:description" content="On se marie ! Ouvrez l'enveloppe pour découvrir toutes les infos 💌">
+  <meta property="og:description" content="Vous êtes invités ! Ouvrez l'enveloppe pour découvrir toutes les infos 💌">
   <meta property="og:image" content="https://mekkilangelo.github.io/ranouxranou/img/og.jpg">
   <meta property="og:url" content="https://mekkilangelo.github.io/ranouxranou/">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#7a1466">
+  <meta name="theme-color" content="#faf6f0">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Poppins:wght@300;400;500&family=Tinos:ital@0;1&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="preload" as="image" href="img/invitation.jpg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ============ ENVELOPPE D'INTRO ============ -->
-  <div id="intro" class="intro" aria-label="Ouvrir l'invitation">
-    <div class="intro-deco">
-      <img src="img/fl_pink.png" class="deco d1" alt="">
-      <img src="img/fl_orange.png" class="deco d2" alt="">
-      <img src="img/branch_violet.png" class="deco d3" alt="">
-      <img src="img/fl_echi2.png" class="deco d4" alt="">
-      <img src="img/butterfly.png" class="deco d5 flutter" alt="">
+  <!-- ============ ENVELOPPE ============ -->
+  <div id="intro" class="intro">
+    <img src="img/garland-top.webp" class="intro-garland top" alt="">
+    <img src="img/garland-bottom.webp" class="intro-garland bottom" alt="">
+
+    <p class="caps intro-kicker">Vous êtes invités</p>
+
+    <div class="stage">
+      <div class="env" id="env">
+        <div class="env-back"></div>
+        <div class="letter-clip">
+          <img src="img/invitation.jpg" class="letter" id="letter" alt="Faire-part de mariage de Rania et Rayane">
+        </div>
+        <div class="env-pocket"></div>
+        <div class="env-flap">
+          <div class="flap-face flap-out"></div>
+          <div class="flap-face flap-in"></div>
+        </div>
+        <button class="seal" id="seal" type="button" aria-label="Ouvrir l'enveloppe">
+          <span>R<i>&amp;</i>R</span>
+        </button>
+      </div>
     </div>
-    <p class="intro-kicker">Vous avez reçu une invitation</p>
-    <button class="envelope" id="envelope" type="button" aria-label="Ouvrir l'enveloppe">
-      <span class="env-back"></span>
-      <span class="env-card">
-        <span class="card-script">Rania <em>et</em> Rayane</span>
-        <span class="card-date">15 · 05 · 2027</span>
-      </span>
-      <span class="env-front"></span>
-      <span class="env-flap"></span>
-      <span class="env-seal">R<small>&amp;</small>R</span>
-    </button>
-    <p class="intro-hint">Touchez l'enveloppe pour l'ouvrir</p>
+
+    <p class="caps intro-hint">Touchez le sceau pour ouvrir</p>
+    <button class="caps intro-go" id="intro-go" type="button">Découvrir notre site</button>
   </div>
 
-  <!-- ============ ARBRE LUMINEUX EN FOND ============ -->
-  <div id="tree" class="tree" aria-hidden="true"></div>
-  <div id="petals" class="petals" aria-hidden="true"></div>
   <canvas id="fireworks" class="fireworks" aria-hidden="true"></canvas>
 
-  <nav class="nav" id="nav">
+  <nav class="nav" aria-label="Sections">
     <a href="#accueil">Accueil</a>
-    <a href="#dresscode">Tenue</a>
+    <a href="#dresscode">Dress code</a>
     <a href="#programme">Programme</a>
-    <a href="#carte">Carte</a>
-    <a href="#questions">Questions</a>
+    <a href="#infos">Infos</a>
   </nav>
 
   <main>
-    <!-- ============ HERO ============ -->
+    <!-- ============ ACCUEIL ============ -->
     <header id="accueil" class="hero">
-      <p class="hero-kicker">Les familles des mariés ont le plaisir de vous annoncer le mariage de leurs enfants</p>
-      <h1 class="names">Rania <span>&amp;</span> Rayane</h1>
-      <div class="hero-date">
-        <span class="line"></span>
-        <span>Samedi 15 mai 2027</span>
-        <span class="line"></span>
+      <div class="hero-frame" aria-hidden="true">
+        <img src="img/garland-top.webp" class="hero-garland top" alt="">
+        <img src="img/side-left.webp" class="hero-side left" alt="">
+        <img src="img/side-right.webp" class="hero-side right" alt="">
+        <img src="img/garland-bottom.webp" class="hero-garland bottom" alt="">
       </div>
 
-      <div class="countdown" id="countdown">
-        <div class="j" id="jdays">J-…</div>
-        <p class="j-label" id="jlabel">avant le grand jour !</p>
-        <div class="clock" id="clock">
-          <div><b id="cd-d">0</b><small>jours</small></div>
-          <div><b id="cd-h">00</b><small>heures</small></div>
-          <div><b id="cd-m">00</b><small>minutes</small></div>
-          <div><b id="cd-s">00</b><small>secondes</small></div>
+      <div class="hero-content">
+        <p class="caps hero-kicker">Les familles des mariés ont le plaisir de vous annoncer le mariage de leurs enfants.</p>
+        <h1 class="names">Rania <span class="et">et</span> Rayane</h1>
+        <img src="img/date.webp" class="hero-date" alt="Samedi 15 mai 2027" width="770" height="458">
+
+        <div class="countdown" id="countdown">
+          <img src="img/tree.webp" class="tree" alt="" width="700" height="700">
+          <p class="j" id="jdays">J-…</p>
+          <p class="j-label script" id="jlabel">avant le grand jour !</p>
+          <div class="clock" id="clock">
+            <div><b id="cd-d">0</b><small>jours</small></div>
+            <div><b id="cd-h">00</b><small>heures</small></div>
+            <div><b id="cd-m">00</b><small>minutes</small></div>
+            <div><b id="cd-s">00</b><small>secondes</small></div>
+          </div>
         </div>
       </div>
-      <a href="#bienvenue" class="scroll-down" aria-label="Continuer">
-        <span>Découvrir</span>
-        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+
     </header>
 
     <!-- ============ BIENVENUE ============ -->
-    <section id="bienvenue" class="section">
-      <div class="card welcome reveal">
-        <img src="img/fl_pink.png" class="corner tl" alt="">
-        <img src="img/fl_orange2.png" class="corner br" alt="">
-        <img src="img/butterfly2.png" class="corner tr flutter" alt="">
-        <h2 class="script-title">Bienvenue sur notre site de mariage !</h2>
-        <p>Nous avons hâte de partager cette magnifique journée avec vous.<br>Vous retrouverez ici toutes les informations pratiques.</p>
-        <p>Merci de faire partie de cette belle aventure à nos côtés.</p>
-        <p class="signature">Rania &amp; Rayane <span class="heart">❤️</span></p>
-      </div>
+    <section id="bienvenue" class="section narrow reveal">
+      <h2 class="title script">Bienvenue sur notre site de mariage !</h2>
+      <p>Nous avons hâte de partager cette magnifique journée avec vous. Vous retrouverez ici toutes les informations pratiques.</p>
+      <p>Merci de faire partie de cette belle aventure à nos côtés.</p>
+      <p class="signature script">Rania &amp; Rayane <span aria-hidden="true">❤️</span></p>
     </section>
+
+    <div class="divider" aria-hidden="true"><span></span><img src="img/butterfly.webp" alt=""><span></span></div>
 
     <!-- ============ DRESS CODE ============ -->
     <section id="dresscode" class="section">
-      <p class="eyebrow reveal">Dress code</p>
-      <h2 class="dare reveal">
-        <span class="w1">Osez</span>
-        <span class="w2">la</span>
-        <span class="w3">couleur&nbsp;!</span>
-      </h2>
+      <p class="caps eyebrow reveal">Dress code</p>
+      <h2 class="dare script reveal">Osez la couleur&nbsp;!</h2>
+      <p class="lead reveal">Orange, rose fuchsia, violet lilas… Pour ce grand jour, sortez vos plus belles couleurs !</p>
 
-      <div class="pattern reveal">
-        <div class="pattern-head">
-          <span>PATRON N°15·05</span>
-          <span>Taille unique : la joie</span>
-          <span>✂ ─ ─ ─ ─</span>
-        </div>
-        <div class="dresses">
-          <figure class="piece">
-            <svg viewBox="0 0 120 220" class="dress">
-              <path class="cut" d="M44 38 Q52 30 60 38 Q68 30 76 38 L74 84 Q60 90 46 84 Z M46 84 Q60 90 74 84 L104 206 Q60 218 16 206 Z"/>
-              <path fill="var(--orange)" d="M44 38 Q52 30 60 38 Q68 30 76 38 L74 84 Q60 90 46 84 Z"/>
-              <path fill="var(--orange)" d="M46 84 Q60 90 74 84 L104 206 Q60 218 16 206 Z"/>
-              <path d="M46 84 Q60 90 74 84" stroke="var(--gold)" stroke-width="3" fill="none"/>
-              <path d="M46 38 L50 10 M74 38 L70 10" stroke="var(--orange)" stroke-width="3"/>
-              <path class="seam" d="M60 92 L60 212 M38 120 L28 205 M82 120 L92 205"/>
-              <circle cx="60" cy="16" r="3" fill="var(--gold)"/>
-            </svg>
-            <figcaption><b>Pièce A</b> Robe orange soleil</figcaption>
-          </figure>
-          <figure class="piece">
-            <svg viewBox="0 0 120 220" class="dress">
-              <path class="cut" d="M46 30 L78 22 L76 86 Q60 92 44 86 Z M44 86 Q60 92 76 86 L80 160 L102 210 Q60 220 18 210 L40 160 Z"/>
-              <path fill="var(--fuchsia)" d="M46 30 L78 22 L76 86 Q60 92 44 86 Z"/>
-              <path fill="var(--fuchsia)" d="M44 86 Q60 92 76 86 L80 160 L102 210 Q60 220 18 210 L40 160 Z"/>
-              <path d="M78 22 L84 14" stroke="var(--fuchsia)" stroke-width="5" stroke-linecap="round"/>
-              <path class="seam" d="M40 160 Q60 168 80 160 M60 92 L60 160"/>
-              <circle cx="88" cy="12" r="5" fill="var(--gold)"/>
-              <circle cx="88" cy="12" r="2" fill="var(--lilac)"/>
-            </svg>
-            <figcaption><b>Pièce B</b> Robe fuchsia sirène</figcaption>
-          </figure>
-          <figure class="piece">
-            <svg viewBox="0 0 120 220" class="dress">
-              <path class="cut" d="M40 34 Q60 26 80 34 L76 80 Q60 86 44 80 Z M44 80 Q60 86 76 80 L110 170 Q60 186 10 170 Z"/>
-              <ellipse cx="36" cy="40" rx="12" ry="10" fill="var(--lilac)"/>
-              <ellipse cx="84" cy="40" rx="12" ry="10" fill="var(--lilac)"/>
-              <path fill="var(--lilac)" d="M40 34 Q60 26 80 34 L76 80 Q60 86 44 80 Z"/>
-              <path fill="var(--lilac)" d="M44 80 Q60 86 76 80 L110 170 Q60 186 10 170 Z"/>
-              <path d="M44 80 Q60 86 76 80" stroke="var(--violet)" stroke-width="4" fill="none"/>
-              <path class="seam" d="M10 170 Q20 160 30 172 Q40 162 50 174 Q60 164 70 174 Q80 162 90 172 Q100 160 110 170"/>
-              <path d="M52 34 Q60 46 68 34" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-              <circle cx="60" cy="46" r="3.5" fill="var(--fuchsia)"/>
-            </svg>
-            <figcaption><b>Pièce C</b> Robe lilas bouffante</figcaption>
-          </figure>
-          <figure class="piece">
-            <svg viewBox="0 0 120 220" class="dress">
-              <path class="cut" d="M30 30 L52 22 L60 40 L68 22 L90 30 L96 120 L74 124 L72 210 L62 210 L60 130 L58 210 L48 210 L46 124 L24 120 Z"/>
-              <path fill="var(--violet)" d="M46 110 L74 110 L72 210 L62 210 L60 130 L58 210 L48 210 Z"/>
-              <path fill="var(--violet-2)" d="M30 30 L52 22 L60 70 L68 22 L90 30 L96 120 L60 126 L24 120 Z"/>
-              <path fill="var(--sun)" d="M52 22 L60 40 L68 22 L60 70 Z"/>
-              <path fill="var(--fuchsia)" d="M56 32 L60 36 L64 32 L62 58 L60 62 L58 58 Z"/>
-              <path class="seam" d="M60 70 L60 120 M30 60 L36 118 M90 60 L84 118"/>
-              <path d="M76 52 l6 -4 l2 6 z" fill="var(--orange)"/>
-            </svg>
-            <figcaption><b>Pièce D</b> Costume violet &amp; cravate fuchsia</figcaption>
-          </figure>
-        </div>
-        <div class="jewels">
-          <span class="jewel-label">Bijoux assortis</span>
-          <span class="gem" style="--c:var(--orange)"></span>
-          <span class="gem" style="--c:var(--fuchsia)"></span>
-          <span class="gem" style="--c:var(--lilac)"></span>
-          <span class="gem" style="--c:var(--sun)"></span>
-          <span class="gem" style="--c:var(--violet)"></span>
-          <span class="gem gold"></span>
-        </div>
+      <div class="palette reveal">
+        <figure><span style="--c:#f39a1d"></span><figcaption class="caps">Orange</figcaption></figure>
+        <figure><span style="--c:#d6246e"></span><figcaption class="caps">Rose fuchsia</figcaption></figure>
+        <figure><span style="--c:#ae8fdb"></span><figcaption class="caps">Violet lilas</figcaption></figure>
       </div>
 
-      <h3 class="sub-title reveal">Notre mood board</h3>
-      <div class="moodboard reveal">
-        <div class="tile big" style="--bg:var(--orange)"><span>Orange</span><small>Soleil · Mandarine · Corail</small></div>
-        <div class="tile img"><img src="img/fl_orange.png" alt=""></div>
-        <div class="tile" style="--bg:var(--fuchsia)"><span>Rose fuchsia</span></div>
-        <div class="tile tall" style="--bg:linear-gradient(160deg,var(--fuchsia),var(--orange) 55%,var(--sun))"><span>Satin &amp; soie</span></div>
-        <div class="tile img" style="--bg:var(--lilac)"><img src="img/branch_violet.png" alt=""></div>
-        <div class="tile" style="--bg:var(--lilac)"><span>Violet lilas</span></div>
-        <div class="tile img" style="--bg:var(--fuchsia-2)"><img src="img/fl_echi.png" alt=""></div>
-        <div class="tile wide" style="--bg:linear-gradient(90deg,var(--orange),var(--fuchsia),var(--lilac),var(--violet))"><span>Plus c'est vif, mieux c'est !</span></div>
-        <div class="tile wide" style="--bg:var(--violet)"><span>Prune &amp; violet</span></div>
-        <div class="tile img" style="--bg:var(--sun)"><img src="img/fl_yellow.png" alt=""></div>
-        <div class="tile wide" style="--bg:radial-gradient(circle at 30% 30%,#ffe9a8,var(--gold) 55%,#a86a00)"><span>Bijoux dorés</span></div>
-        <div class="tile img wide" style="--bg:var(--orange-2)"><img src="img/butterfly.png" class="flutter" alt=""></div>
+      <p class="caps eyebrow reveal">Quelques inspirations</p>
+      <div class="looks reveal">
+        <img loading="lazy" src="img/looks/groupe.jpg" alt="Invitées en robes jaune, orange et fuchsia">
+        <img loading="lazy" src="img/looks/homme-orange.jpg" alt="Costume orange">
+        <img loading="lazy" src="img/looks/fuchsia.jpg" alt="Robe fuchsia">
+        <img loading="lazy" src="img/looks/lilas.jpg" alt="Robes lilas">
+        <img loading="lazy" src="img/looks/orange2.jpg" alt="Robe orange">
+        <img loading="lazy" src="img/looks/homme-corail.jpg" alt="Costume corail">
+        <img loading="lazy" src="img/looks/lilas2.jpg" alt="Robe lilas">
+        <img loading="lazy" src="img/looks/fuchsia2.jpg" alt="Robe fuchsia">
+        <img loading="lazy" src="img/looks/groupe2.jpg" alt="Invités en couleurs vives">
+        <img loading="lazy" src="img/looks/homme-orange2.jpg" alt="Costume orange vif">
+        <img loading="lazy" src="img/looks/lilas3.jpg" alt="Robe lilas plissée">
+        <img loading="lazy" src="img/looks/orange.jpg" alt="Robe orange longue">
       </div>
 
       <div class="banned reveal">
-        <p class="banned-title">À laisser au placard</p>
+        <p class="caps eyebrow">À laisser au placard</p>
         <div class="banned-row">
-          <span class="nope" style="--c:#fbfbf8"><b>Blanc</b></span>
-          <span class="nope" style="--c:#e8d8bd"><b>Beige</b></span>
-          <span class="nope" style="--c:#151515;color:#fff"><b>Noir</b></span>
+          <figure><span style="--c:#ffffff"></span><figcaption class="caps">Blanc</figcaption></figure>
+          <figure><span style="--c:#e6d6bc"></span><figcaption class="caps">Beige</figcaption></figure>
+          <figure><span style="--c:#1d1d1d"></span><figcaption class="caps">Noir</figcaption></figure>
         </div>
-        <p class="banned-quote">« Je veux que ma rétine explose » — la mariée</p>
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"><span></span><img src="img/fl-poppy.webp" alt=""><span></span></div>
+
     <!-- ============ PROGRAMME ============ -->
     <section id="programme" class="section">
-      <p class="eyebrow reveal">Le jour J</p>
-      <h2 class="script-title big reveal">Le programme</h2>
+      <p class="caps eyebrow reveal">Le jour J</p>
+      <h2 class="title script reveal">Le programme</h2>
 
       <ol class="timeline">
-        <li class="step reveal" style="--accent:var(--fuchsia)">
-          <div class="step-icon"><img src="img/rings.png" alt="Alliances"></div>
-          <div class="step-card">
-            <p class="step-time">13h30</p>
-            <h3>Mairie</h3>
-            <p class="step-place">Château Dodo · Domène</p>
+        <li class="step reveal">
+          <div class="step-icon"><img src="img/rings.png" alt=""></div>
+          <div class="step-body">
+            <p class="time">à 13h30</p>
+            <h3 class="caps">Mairie</h3>
+            <p class="place">Château Dodo · Domène</p>
+            <div class="step-map" data-embed="mairie"></div>
             <div class="btns">
-              <a class="btn" target="_blank" rel="noopener" data-maps="mairie">Google Maps</a>
-              <a class="btn waze" target="_blank" rel="noopener" data-waze="mairie">Waze</a>
+              <a class="btn" data-maps="mairie" target="_blank" rel="noopener">Google Maps</a>
+              <a class="btn" data-waze="mairie" target="_blank" rel="noopener">Waze</a>
             </div>
-            <details class="info">
-              <summary>Conseils &amp; informations</summary>
+            <div class="note">
+              <p class="caps note-title">Conseils &amp; informations</p>
               <ul>
-                <li>🅿️ Il est conseillé de stationner sur le <b>parking de la Compagnie Stéphane</b>, situé à une minute à pied du lieu de cérémonie.</li>
-                <li>🚫 Aucun véhicule, autre que celui des mariés, n'est autorisé à stationner dans la cour du château.</li>
-                <li>🎊 Pas de confettis, pétales ou autres.</li>
+                <li>Il est conseillé de stationner sur le parking de la <b>Compagnie Stéphane</b>, situé à une minute à pied du lieu de cérémonie.</li>
+                <li>Aucun véhicule, autre que celui des mariés, n'est autorisé à stationner dans la cour du château.</li>
+                <li>Pas de confettis, pétales ou autres.</li>
               </ul>
-            </details>
-          </div>
-        </li>
-
-        <li class="step reveal" style="--accent:var(--orange)">
-          <div class="step-icon"><img src="img/camera.png" alt="Caméra"></div>
-          <div class="step-card">
-            <p class="step-time">14h30</p>
-            <h3>Séance photo</h3>
-            <p class="step-place">Parc du Bachais · Meylan</p>
-            <div class="btns">
-              <a class="btn" target="_blank" rel="noopener" data-maps="photo">Google Maps</a>
-              <a class="btn waze" target="_blank" rel="noopener" data-waze="photo">Waze</a>
             </div>
           </div>
         </li>
 
-        <li class="step reveal" style="--accent:var(--violet-2)">
-          <div class="step-icon"><img src="img/cake.png" alt="Gâteau"></div>
-          <div class="step-card">
-            <p class="step-time">19h00</p>
-            <h3>Réception</h3>
-            <p class="step-place">Domaine de Vence · Quaix-en-Chartreuse</p>
+        <li class="step reveal">
+          <div class="step-icon"><img src="img/camera.png" alt=""></div>
+          <div class="step-body">
+            <p class="time">à 14h30</p>
+            <h3 class="caps">Séance photo</h3>
+            <p class="place">Parc du Bachais · Meylan</p>
+            <div class="step-map" data-embed="photo"></div>
             <div class="btns">
-              <a class="btn" target="_blank" rel="noopener" data-maps="domaine">Google Maps</a>
-              <a class="btn waze" target="_blank" rel="noopener" data-waze="domaine">Waze</a>
+              <a class="btn" data-maps="photo" target="_blank" rel="noopener">Google Maps</a>
+              <a class="btn" data-waze="photo" target="_blank" rel="noopener">Waze</a>
             </div>
-            <details class="info" open>
-              <summary>Dormir sur place</summary>
-              <p>Le domaine met à disposition <b>deux dortoirs</b> sur place (hommes et femmes séparés). Les invités souhaitant dormir sur place sont invités à prévenir Rania et/ou Rayane à l'avance.</p>
-              <div class="chips">
-                <span class="chip ok">✅ Hébergement gratuit</span>
-                <span class="chip warn">⚠️ Places limitées</span>
-              </div>
-              <p class="small">Les draps, housses et couvertures ne sont pas fournis.</p>
-            </details>
+          </div>
+        </li>
+
+        <li class="step reveal">
+          <div class="step-icon"><img src="img/cake.png" alt=""></div>
+          <div class="step-body">
+            <p class="time">à 19h00</p>
+            <h3 class="caps">Réception</h3>
+            <p class="place">Domaine de Vence · Quaix-en-Chartreuse</p>
+            <div class="step-map" data-embed="domaine"></div>
+            <div class="btns">
+              <a class="btn" data-maps="domaine" target="_blank" rel="noopener">Google Maps</a>
+              <a class="btn" data-waze="domaine" target="_blank" rel="noopener">Waze</a>
+            </div>
+            <div class="note">
+              <p class="caps note-title">Dormir sur place</p>
+              <p>Le domaine met à disposition deux dortoirs sur place (hommes et femmes séparés). Les invités souhaitant dormir sur place sont invités à prévenir Rania et/ou Rayane à l'avance.</p>
+              <ul class="tags">
+                <li>✅ Hébergement gratuit</li>
+                <li>⚠️ Places limitées</li>
+              </ul>
+              <p class="muted">Les draps, housses et couvertures ne sont pas fournis.</p>
+            </div>
           </div>
         </li>
       </ol>
     </section>
 
-    <!-- ============ CARTE ============ -->
-    <section id="carte" class="section">
-      <p class="eyebrow reveal">Itinéraire de la journée</p>
-      <h2 class="script-title big reveal">Mairie · Photos · Domaine</h2>
-      <div class="map-wrap reveal">
+    <!-- ============ ITINÉRAIRE ============ -->
+    <section id="itineraire" class="section">
+      <p class="caps eyebrow reveal">Mairie · Photos · Domaine</p>
+      <h2 class="title script reveal">L'itinéraire de la journée</h2>
+      <div class="map-frame reveal">
         <div id="map" class="map"></div>
-        <div class="map-legend">
-          <span><i style="background:var(--fuchsia)">1</i> Mairie · 13h30</span>
-          <span><i style="background:var(--orange)">2</i> Photos · 14h30</span>
-          <span><i style="background:var(--violet-2)">3</i> Domaine · 19h</span>
-        </div>
-        <a class="btn big-btn" id="route-link" target="_blank" rel="noopener">🚗 Ouvrir tout l'itinéraire dans Google Maps</a>
       </div>
+      <ol class="legend">
+        <li><i>1</i> Mairie · 13h30</li>
+        <li><i>2</i> Photos · 14h30</li>
+        <li><i>3</i> Domaine · 19h00</li>
+      </ol>
+      <a class="btn solid" id="route-link" target="_blank" rel="noopener">Ouvrir l'itinéraire complet</a>
     </section>
 
-    <!-- ============ ALBUM ============ -->
-    <section id="album" class="section">
-      <div class="card album reveal">
-        <img src="img/fl_echi.png" class="corner tl" alt="">
-        <img src="img/fl_orange.png" class="corner br" alt="">
-        <h2 class="script-title">L'album photo partagé</h2>
-        <p>Vos plus belles photos de la journée, c'est ici qu'on les rassemble ! Ajoutez-les dans notre album Google Photos.</p>
-        <a class="btn big-btn" id="album-link" target="_blank" rel="noopener">📸 Ouvrir l'album</a>
-        <p class="small" id="album-soon" hidden>Le lien de l'album arrive bientôt 🌸</p>
-      </div>
-    </section>
+    <div class="divider" aria-hidden="true"><span></span><img src="img/fl-pink.webp" alt=""><span></span></div>
 
-    <!-- ============ QUESTIONS ============ -->
-    <section id="questions" class="section">
-      <p class="eyebrow reveal">Une question ?</p>
-      <h2 class="script-title big reveal">Le coin des invités</h2>
+    <!-- ============ INFOS ============ -->
+    <section id="infos" class="section narrow">
+      <div class="album reveal">
+        <p class="caps eyebrow">Souvenirs</p>
+        <h2 class="title script">L'album photo partagé</h2>
+        <p>Vos plus belles photos de la journée, c'est ici qu'on les rassemble.</p>
+        <a class="btn solid" id="album-link" target="_blank" rel="noopener">Ouvrir l'album Google Photos</a>
+        <p class="muted" id="album-soon" hidden>Le lien de l'album sera ajouté très bientôt.</p>
+      </div>
 
       <div class="faq reveal">
+        <p class="caps eyebrow">Une question ?</p>
+        <h2 class="title script">Questions fréquentes</h2>
         <details>
           <summary>Où se garer pour la mairie ?</summary>
           <p>Sur le parking de la Compagnie Stéphane, à une minute à pied du château. La cour du château est réservée à la voiture des mariés.</p>
         </details>
         <details>
           <summary>Peut-on lancer des confettis ou des pétales ?</summary>
-          <p>Non, pas de confettis, pétales ou autres à la mairie, merci !</p>
+          <p>Non, pas de confettis, pétales ou autres, merci !</p>
         </details>
         <details>
           <summary>Peut-on dormir au domaine ?</summary>
-          <p>Oui ! Deux dortoirs gratuits (hommes / femmes séparés), mais les places sont limitées : prévenez Rania et/ou Rayane à l'avance. Pensez à apporter draps, housse et couverture.</p>
+          <p>Oui : deux dortoirs gratuits (hommes et femmes séparés), mais les places sont limitées. Prévenez Rania et/ou Rayane à l'avance, et pensez à apporter draps, housse et couverture.</p>
         </details>
         <details>
           <summary>Comment s'habiller ?</summary>
-          <p>Osez la couleur ! Orange, rose fuchsia, violet lilas… Pas de blanc, de beige ni de noir.</p>
+          <p>Osez la couleur ! Orange, rose fuchsia, violet lilas… Évitez le blanc, le beige et le noir.</p>
         </details>
+        <div class="ask" id="ask"></div>
       </div>
-
-      <div id="forum" class="forum reveal"></div>
     </section>
 
     <footer class="footer">
-      <img src="img/invitation.jpg" alt="Faire-part de Rania et Rayane" class="footer-invit" id="footer-invit">
-      <p class="names small-names">Rania <span>&amp;</span> Rayane</p>
-      <p>15 · 05 · 2027</p>
-      <button class="link-btn" id="replay" type="button">💌 Rouvrir l'enveloppe</button>
+      <img src="img/invitation.jpg" class="footer-invit" id="footer-invit" alt="Faire-part" loading="lazy">
+      <p class="names small">Rania <span class="et">et</span> Rayane</p>
+      <p class="caps">15 · 05 · 2027</p>
+      <button class="link-btn caps" id="replay" type="button">Revoir l'enveloppe</button>
+      <img src="img/garland-bottom.webp" class="footer-garland" alt="" loading="lazy">
     </footer>
   </main>
 
   <div class="lightbox" id="lightbox" hidden><img src="img/invitation.jpg" alt="Faire-part"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
